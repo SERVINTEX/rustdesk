@@ -197,9 +197,9 @@ jobs:
       - name: Branding
         shell: bash
         run: |
-          sed -i 's/RwLock::new("RustDesk".to_owned())/RwLock::new("ServintexRemote".to_owned())/' libs/hbb_common/src/config.rs
+          sed -i 's/RwLock::new("RustDesk".to_owned())/RwLock::new("Soporte_Servintex".to_owned())/' libs/hbb_common/src/config.rs
           grep -n 'APP_NAME' libs/hbb_common/src/config.rs | head -3
-          grep -q 'RwLock::new("ServintexRemote"' libs/hbb_common/src/config.rs
+          grep -q 'RwLock::new("Soporte_Servintex"' libs/hbb_common/src/config.rs
 
       - name: Restore bridge files
 
