@@ -466,8 +466,8 @@ jobs:
           name: rustdesk-unsigned-packer-template-${{ matrix.job.arch }}
           path: ./packer-template
           if-no-files-found: error
-
-            - name: Build self-extracted executable
+          
+      - name: Build self-extracted executable
         shell: bash
         if: env.UPLOAD_ARTIFACT == 'true'
         run: |
@@ -479,8 +479,8 @@ jobs:
           python3 ./generate.py -f ../../rustdesk-pkg/ -o . -e ../../rustdesk-pkg/Soporte_Servintex.exe
           popd
           mkdir -p ./SignOutput
-          mv ./target/release/rustdesk-portable-packer.exe ./SignOutput/rustdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exematrix.job.arch }}.exe
-
+          mv ./target/release/rustdesk-portable-packer.exe ./SignOutput/rustdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
+     
       - name: Add MSBuild to PATH
         uses: microsoft/setup-msbuild@6fb02220983dee41ce7ae257b6f4d8f9bf5ed4ce # v2
         with:
