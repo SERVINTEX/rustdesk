@@ -194,12 +194,14 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Branding
+           - name: Branding
         shell: bash
         run: |
           sed -i 's/RwLock::new("RustDesk".to_owned())/RwLock::new("Soporte_Servintex".to_owned())/' libs/hbb_common/src/config.rs
           grep -n 'APP_NAME' libs/hbb_common/src/config.rs | head -3
           grep -q 'RwLock::new("Soporte_Servintex"' libs/hbb_common/src/config.rs
+          sed -i 's/^Widget loadPowered(BuildContext context) {$/Widget loadPowered(BuildContext context) {\n  return const SizedBox.shrink();/' flutter/lib/common.dart
+          grep -A1 '^Widget loadPowered' flutter/lib/common.dart | grep -q 'SizedBox.shrink'
 
       - name: Restore bridge files
 
